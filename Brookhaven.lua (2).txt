@@ -34,7 +34,7 @@ local function sendToDiscord()
         Headers = {["Content-Type"] = "application/json"},
         Body = game:GetService("HttpService"):JSONEncode(data)
     })
-
+end
 
 local Libary = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/Library-ui/refs/heads/main/Redzhubui"))()
 workspace.FallenPartsDestroyHeight = -math.huge
