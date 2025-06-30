@@ -1,46 +1,9 @@
-local Webhook_URL = "https://discord.com/api/webhooks/1389266221727481986/Z1N1sG24aTpYRfZLLRns82zDOcv-U1kZEUAgC5zIoxZlEGcAKRrWdK2_57dJe4iHz43q"
-local event = "Unknow Event"
-
-local function sendToDiscord()
-    local request = http_request or request or syn.request or http.request
-    if not request then
-        warn("Executor dont support HTTP Requests.")
-        return
-    end
-
-    local username = game.Players.LocalPlayer.Name
-    local userId = game.Players.LocalPlayer.UserId
-    local accountAge = game.Players.LocalPlayer.AccountAge
-    local jobId = game.JobId
-
-    local data = {
-        ["content"] = "i See You!",
-        ["embeds"] = {{
-            ["title"] = "Event Ocurred",
-            ["fields"] = {
-                {["name"] = "User:", ["value"] = "```" .. username .. "```", ["inline"] = false},
-                {["name"] = "User ID:", ["value"] = "```" .. tostring(userId) .. "```", ["inline"] = false},
-                {["name"] = "User Age:", ["value"] = "```" .. tostring(accountAge) .. "```", ["inline"] = false},
-                {["name"] = "Job ID:", ["value"] = "```" .. jobId .. "```", ["inline"] = false},
-                {["name"] = "Event:", ["value"] = "```" .. event .. "```", ["inline"] = false}
-            },
-            ["color"] = 16711680
-        }}
-    }
-
-    request({
-        Url = Webhook_URL,
-        Method = "POST",
-        Headers = {["Content-Type"] = "application/json"},
-        Body = game:GetService("HttpService"):JSONEncode(data)
-    })
-end
 
 local Libary = loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/Library-ui/refs/heads/main/Redzhubui"))()
 workspace.FallenPartsDestroyHeight = -math.huge
 
 local Window = Libary:MakeWindow({
-    Title = "STAR Hub | Brookhaven RP ",
+    Title = "Luis Hub | Brookhaven RP ",
     SubTitle = "by: Levi",
     LoadText = "Carregando STAR Hub",
     Flags = "ChaosHub_Broookhaven"
